@@ -46,14 +46,19 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.28</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.4.10.RC0</version>
+            <version>9.4.9.v20180320</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
-            <version>9.4.10.RC0</version>
+            <version>9.4.9.v20180320</version>
         </dependency>
     </dependencies>
 </project>
