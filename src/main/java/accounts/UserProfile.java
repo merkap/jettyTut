@@ -13,6 +13,14 @@ public class UserProfile {
 
     public UserProfile(String login) {
         this.login = login;
+        this.password = login;
+        this.email = login;
+    }
+
+    public UserProfile(String login, String password) {
+        this.login = login;
+        this.password = password;
+        this.email = null;
     }
 
     public String getLogin() {

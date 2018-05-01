@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SignIn extends HttpServlet {
+public class SignUp extends HttpServlet {
     private final AccountService accountService;
     private String contentType = "text/html;charset=utf-8";
 
-    public SignIn(AccountService accountService) {
+    public SignUp(AccountService accountService) {
         this.accountService = accountService;
     }
 
@@ -28,15 +28,8 @@ public class SignIn extends HttpServlet {
             return;
         }
 
-        UserProfile profile = accountService.getUserByLogin(login);
-        if (profile == null || !profile.getPassword().equals(pass)) {
-            resp.setContentType(contentType);
-            resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            return;
-        }
-
+        accountService.addNewUser(new UserProfile(login, pass));
         resp.setContentType(contentType);
         resp.setStatus(HttpServletResponse.SC_OK);
-        resp.getWriter().append("Authorized: ").append(login).append('\n');
     }
 }

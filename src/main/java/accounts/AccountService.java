@@ -12,11 +12,8 @@ public class AccountService {
         sessionIdToProfile = new HashMap<>();
     }
 
-    public void addUser(String userName, UserProfile userProfile) {
-        if (loginToProfile.containsKey(userName))
-//            return false;
-            loginToProfile.put(userName, userProfile);
-//        return true;
+    public void addNewUser(UserProfile userProfile) {
+        loginToProfile.put(userProfile.getLogin(), userProfile);
     }
 
     public UserProfile getUserByLogin(String login) {
@@ -35,7 +32,7 @@ public class AccountService {
         return sessionIdToProfile.get(sessionId);
     }
 
-    public UserProfile deleteSession(String sessionId) {
-        return sessionIdToProfile.remove(sessionId);
+    public void deleteSession(String sessionId) {
+        sessionIdToProfile.remove(sessionId);
     }
 }
