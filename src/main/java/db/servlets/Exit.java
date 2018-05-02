@@ -1,4 +1,4 @@
-package servlets;
+package db.servlets;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

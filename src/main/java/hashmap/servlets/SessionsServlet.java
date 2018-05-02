@@ -1,8 +1,8 @@
-package servlets;
+package hashmap.servlets;
 
-import accounts.AccountService;
-import accounts.UserProfile;
 import com.google.gson.Gson;
+import hashmap.accounts.AccountService;
+import hashmap.accounts.UserProfile;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

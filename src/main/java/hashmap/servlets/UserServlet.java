@@ -1,6 +1,6 @@
-package servlets;
+package hashmap.servlets;
 
-import accounts.AccountService;
+import hashmap.accounts.AccountService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

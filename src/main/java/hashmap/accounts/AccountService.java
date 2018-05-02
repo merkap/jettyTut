@@ -1,4 +1,4 @@
-package accounts;
+package hashmap.accounts;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +10,13 @@ public class AccountService {
     public AccountService() {
         loginToProfile = new HashMap<>();
         sessionIdToProfile = new HashMap<>();
+    }
+
+    public void addNewUser(String userName, UserProfile userProfile) {
+        if (!loginToProfile.containsKey(userName))
+//            return false;
+            loginToProfile.put(userName, userProfile);
+//        return true;
     }
 
     public void addNewUser(UserProfile userProfile) {
@@ -32,7 +39,8 @@ public class AccountService {
         return sessionIdToProfile.get(sessionId);
     }
 
-    public void deleteSession(String sessionId) {
-        sessionIdToProfile.remove(sessionId);
+    public UserProfile deleteSession(String sessionId) {
+        return sessionIdToProfile.remove(sessionId);
     }
+
 }

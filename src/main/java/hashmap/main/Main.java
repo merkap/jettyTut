@@ -1,14 +1,14 @@
-package main;
+package hashmap.main;
 
-import accounts.AccountService;
-import accounts.UserProfile;
+import hashmap.accounts.AccountService;
+import hashmap.accounts.UserProfile;
+import hashmap.servlets.*;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import servlets.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {

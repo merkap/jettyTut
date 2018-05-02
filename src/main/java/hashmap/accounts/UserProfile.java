@@ -1,4 +1,4 @@
-package accounts;
+package hashmap.accounts;
 
 public class UserProfile {
     private String login;
