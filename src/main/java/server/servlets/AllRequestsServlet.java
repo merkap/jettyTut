@@ -1,5 +1,7 @@
 package server.servlets;
 
+import server.accountServer.AccountServer;
+import server.serviceContext.ServiceContext;
 import server.templater.PageGenerator;
 
 import javax.servlet.ServletException;
@@ -9,9 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AllRequestsServlet extends HttpServlet {
+    //    static final Logger logger = LogManager.getLogger(AllRequestsServlet.class);
+    private final ServiceContext serviceContext;
+
+    public AllRequestsServlet(ServiceContext serviceContext) {
+        this.serviceContext = serviceContext;
+    }
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
+
+        int limit = ((AccountServer) serviceContext.get(AccountServer.class)).getUsersLimit();
+        int count = ((AccountServer) serviceContext.get(AccountServer.class)).getUsersCount();
+//        logger.info("Limit: {}. Count: {}", limit,count);
+
+        if (limit > count) {
+//            logger.info("User pass");
+            ((AccountServer) serviceContext.get(AccountServer.class)).addUser();
+            response.setStatus(HttpServletResponse.SC_OK);
+        } else {
+//            logger.info("User were rejected");
+            response.getWriter().println("Server is closed for maintenance!");
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+
+        }
 
         if (request.getSession().getAttribute("username") != null) {
             PageGenerator.instance().pageVariables
@@ -27,8 +50,8 @@ public class AllRequestsServlet extends HttpServlet {
 
     }
 
-//    public void doPost(HttpServletRequest request,
-//                       HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request,
+                       HttpServletResponse response) throws ServletException, IOException {
 //        Map<String, Object> pageVariables = createPageVariablesMap(request);
 //
 //        String message = request.getParameter("message");
@@ -55,5 +78,5 @@ public class AllRequestsServlet extends HttpServlet {
 //        System.out.println(request.getSession().getAttribute("username"));
 //        return pageVariables;
 //
-//    }
+    }
 }

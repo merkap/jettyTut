@@ -46,6 +46,7 @@
                             <mainClass>server.main.Main</mainClass>
                         </manifest>
                     </archive>
+                    <outputDirectory>${basedir}</outputDirectory>
                     <finalName>server</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
