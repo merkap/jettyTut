@@ -1,35 +1,73 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>Some site</title>
+    <style>
+   h1 {
+    font-size: 36px; /* Размер шрифта */
+    margin: 0; /* Убираем отступы */
+    color: #fc6; /* Цвет текста */
+   }
+   h2 {
+    margin-top: 0; /* Убираем отступ сверху */
+   }
+   #header { /* Верхний блок */
+    background: #0080c0; /* Цвет фона */
+    padding: 10px; /* Поля вокруг текста */
+   }
+   #leftbar { /* Левая колонка */
+    background: #ccc;
+    float: left; /* Обтекание справа */
+    border: 1px solid #333; /* Параметры рамки вокруг */
+    margin: 10%; /* Значения отступов */
+    padding: 5px; /* Поля вокруг текста */
+   }
+   #rightbar { /* Правая колонка */
+    background: #ccc;
+    margin: 10%; /* Значения отступов */
+    padding: 5px; /* Поля вокруг текста */
+    border: 1px solid #333; /* Параметры рамки */
+    margin-left: 70%; /* Значения отступов */
+
+   }
+   #footer { /* Нижний блок */
+    padding: 5px; /* Поля вокруг текста */
+    color: #fff; /* Цвет текста */
+    clear: left; /* Отменяем действие float */
+   }
+
+
+    </style>
 </head>
 <body>
-<p>/api/v1/sessions</p>
+<div id="header"><h1 align="center">Hello, ${username}!</h1></div>
+<div id="leftbar">
+    <p>SignUp</p>
 
-<form action="/api/v1/sessions" method="POST">
-    Login: <input type="text" name="login"/>
-    Password: <input type="password" name="pass"/>
-    <input type="submit" value="Sign in">
-</form>
+    <form action="/signup" method="POST">
+        Login: <br>
+        <input type="text" name="login"/><br>
+        Password: <br>
+        <input type="password" name="password"/><br>
+        <input type="submit" value="Sign up">
+    </form>
 
-<p>/signup</p>
+</div>
+<div id="rightbar">
+    <p align="center">SignIn</p>
 
-<form action="/signup" method="POST">
-    Login: <input type="text" name="login"/>
-    Password: <input type="password" name="password"/>
-    <input type="submit" value="Sign up">
-</form>
-
-<p>/signin</p>
-
-<form action="/signin" method="POST">
-    Login: <input type="text" name="login"/>
-    Password: <input type="password" name="password"/>
-    <input type="submit" value="Sign in">
-</form>
-
-
-<a href="/exit">exit</a>
+    <form action="/signin" method="POST">
+        Login: <br>
+        <input type="text" name="login"/><br>
+        Password: <br>
+        <input type="password" name="password"/><br>
+        <input type="submit" value="Sign in">
+    </form>
+</div>
+</div>
+<div id="footer" align="center"><a href="/exit">Shutdown server</a>
+    <a href="chat.html">Chat</a>
+    </div>
 </body>
 </html>

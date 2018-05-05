@@ -1,4 +1,4 @@
-package db.dbServiceHibernate;
+package learning.dbServiceHibernate;
 
 public class DBException extends Exception {
     public DBException(Throwable throwable) {

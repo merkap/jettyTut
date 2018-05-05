@@ -3,8 +3,6 @@ package server.servlets;
 import server.dbServiceJDBC.DBException;
 import server.dbServiceJDBC.DBService;
 import server.serviceContext.ServiceContext;
-import server.sessionService.SessionService;
-import server.sessionService.UserProfile;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +31,8 @@ public class SignUp extends HttpServlet {
 
         try {
             ((DBService) serviceContext.get(DBService.class)).addUser(login, pass);
-            ((SessionService) serviceContext.get(SessionService.class))
-                    .addSession(req.getSession().getId(), new UserProfile(login, pass));
+//            ((SessionService) serviceContext.get(SessionService.class))
+//                    .addSession(req.getSession().getId(), new UserProfile(login, pass));
         } catch (DBException e) {
             e.printStackTrace();
         }

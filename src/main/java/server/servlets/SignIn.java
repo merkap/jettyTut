@@ -49,6 +49,8 @@ public class SignIn extends HttpServlet {
 
         ((SessionService) serviceContext.get(SessionService.class))
                 .addSession(req.getSession().getId(), new UserProfile(profile.getName(), profile.getPass()));
+        req.getSession().setAttribute("username", profile.getName());
+
         resp.getWriter().append("Authorized: ").append(login).append('\n');
     }
 }

@@ -1,4 +1,4 @@
-package learning.socket.chat;
+package server.chat;
 
 import java.util.Collections;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package learning.socket.chat;
+package server.chat;
 
 import org.eclipse.jetty.websocket.servlet.WebSocketServlet;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;

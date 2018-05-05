@@ -1,7 +1,7 @@
-package db.dbServiceHibernate;
+package learning.dbServiceHibernate;
 
-import db.dbServiceHibernate.dao.UsersDAO;
-import db.dbServiceHibernate.dataSets.UsersDataSet;
+import learning.dbServiceHibernate.dao.UsersDAO;
+import learning.dbServiceHibernate.dataSets.UsersDataSet;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

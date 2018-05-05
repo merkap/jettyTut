@@ -1,4 +1,4 @@
-package db.dbServiceHibernate.dataSets;
+package learning.dbServiceHibernate.dataSets;
 
 import javax.persistence.*;
 import java.io.Serializable;
