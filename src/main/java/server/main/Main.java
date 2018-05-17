@@ -1,5 +1,7 @@
 package server.main;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -26,7 +28,7 @@ import java.lang.management.ManagementFactory;
 import java.util.Properties;
 
 public class Main {
-//    static final Logger logger = LogManager.getLogger(Main.class.getName());
+    private static final Logger logger = LogManager.getLogger(Main.class.getName());
 
     public static void main(String[] args) throws Exception {
         String startedMessage;
@@ -71,14 +73,14 @@ public class Main {
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[]{resourceHandler, context});
 
-//        if (args.length == 1) {
-//            port = Integer.valueOf(args[0]);
-//        }
+        if (args.length == 1) {
+            port = Integer.valueOf(args[0]);
+        }
         Server server = new Server(port);
         server.setHandler(handlers);
 
         server.start();
-//        logger.info("Server started");
+        logger.info("Server started");
         System.out.println(startedMessage);
         server.join();
 
